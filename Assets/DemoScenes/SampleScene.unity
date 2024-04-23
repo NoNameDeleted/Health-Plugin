@@ -757,11 +757,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1235255204}
         m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: LoseHealth
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -891,11 +891,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1235255204}
         m_TargetAssemblyTypeName: Health, Assembly-CSharp
         m_MethodName: RestoreHealth
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 10
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -967,10 +967,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffdb6aaeeb50af34894ad3d4d2660c33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoint: 5
-  OnHealthChange:
-    m_PersistentCalls:
-      m_Calls: []
+  _healthPoint: 50
+  _maxHealth: 100
 --- !u!4 &1235255205
 Transform:
   m_ObjectHideFlags: 0
@@ -1109,12 +1107,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1235255204}
     - target: {fileID: 1500740273160994241, guid: 48d1b3071b6f3fa4086020c6654b9cbe, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1500740273160994241, guid: 48d1b3071b6f3fa4086020c6654b9cbe, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1776956438996936969, guid: 48d1b3071b6f3fa4086020c6654b9cbe, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493737144435538712, guid: 48d1b3071b6f3fa4086020c6654b9cbe, type: 3}
+      propertyPath: m_Value
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4787406649225557975, guid: 48d1b3071b6f3fa4086020c6654b9cbe, type: 3}
       propertyPath: m_Pivot.x
@@ -1201,7 +1207,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8387850483457070623, guid: 48d1b3071b6f3fa4086020c6654b9cbe, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387850483457070623, guid: 48d1b3071b6f3fa4086020c6654b9cbe, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8387850483457070623, guid: 48d1b3071b6f3fa4086020c6654b9cbe, type: 3}
+      propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1305,9 +1319,21 @@ PrefabInstance:
       propertyPath: _health
       value: 
       objectReference: {fileID: 1235255204}
+    - target: {fileID: 2974762293517472462, guid: 05c800325288f7b4ab65c1f9134e2c3e, type: 3}
+      propertyPath: _speedChange
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4551247456471143645, guid: 05c800325288f7b4ab65c1f9134e2c3e, type: 3}
       propertyPath: m_Name
       value: SmoothHealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 7230218930737047472, guid: 05c800325288f7b4ab65c1f9134e2c3e, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266302981307224186, guid: 05c800325288f7b4ab65c1f9134e2c3e, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7266302981307224186, guid: 05c800325288f7b4ab65c1f9134e2c3e, type: 3}
       propertyPath: m_AnchorMax.y

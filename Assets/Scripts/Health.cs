@@ -6,27 +6,29 @@ using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int _healthPoint = 5;
+    [SerializeField] private int _healthPoint = 50;
+    [SerializeField] private int _maxHealth = 100;
 
-    public UnityEvent<int> OnHealthChange;
+    public event Action<float> Changed;
 
-    public int MaxHealth => 5;
+    public float MaxHealth => _maxHealth;
+    public float CurrentHealth => _healthPoint;
 
-    public void LoseHealth()
+    public void LoseHealth(int damageAmount = 1)
     {
         if (_healthPoint > 0)
         {
-            _healthPoint--;
-            OnHealthChange?.Invoke(_healthPoint);
+            _healthPoint -= Mathf.Clamp(damageAmount, 0, _healthPoint);
+            Changed?.Invoke(_healthPoint);
         }    
     }
 
-    public void RestoreHealth()
+    public void RestoreHealth(int healAmount = 1)
     {
-        if (_healthPoint < MaxHealth)
+        if (_healthPoint < _maxHealth)
         {
-            _healthPoint++;
-            OnHealthChange?.Invoke(_healthPoint);
+            _healthPoint += Mathf.Clamp(healAmount, 0, _maxHealth - _healthPoint);
+            Changed?.Invoke(_healthPoint);
         }   
     }
 }
